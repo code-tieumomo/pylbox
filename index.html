@@ -262,6 +262,7 @@
             //⚡ Get and render all items + sample items
             var newestRef = firebase.database().ref('items').orderByKey();
             newestRef.on("value", (snapshot) => {
+                $(".temp-items").remove();
                 const items = snapshot.val();
                 Object.entries(items).forEach(([key, value]) => {
                     var html = `
@@ -290,24 +291,30 @@
                 });
             });
 
-            for (var i = 0; i < 100; i++) {
+            for (var i = 0; i < 4; i++) {
                 var html = `
-                    <div data-aos="${aosEffect[Math.floor(Math.random()*aosEffect.length)]}" class="col-12 col-lg-6 mb-5">
+                    <div data-aos="${aosEffect[Math.floor(Math.random()*aosEffect.length)]}" class="col-12 col-lg-6 mb-5 temp-items">
                         <div class="card flex-row listing-card-container">
                             <div class="w-40 position-relative">
                                 <a href="#">
-                                    <img class="card-img-left" src="img/details/small-5.jpg" alt="Card image cap">
-                                    <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">SAMPLE</span>
+                                    <img class="card-img-left" src="img/details/loading.png" alt="Card image cap">
+                                    <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left"><div class="spinner-border spinner-border-sm"></div></span></span>
                                 </a>
                             </div>
                             <div class="w-60 d-flex align-items-center">
                                 <div class="card-body">
                                     <a href="#">
-                                        <h5 class="mb-3 listing-heading ellipsis">This is a sample item in the box</h5>
+                                        <h5 class="mb-3 listing-heading ellipsis">
+                                            <div class="spinner-grow spinner-grow-xl text-primary"></div>
+                                            <div class="spinner-grow spinner-grow-xl text-success"></div>
+                                            <div class="spinner-grow spinner-grow-xl text-info"></div>
+                                            <div class="spinner-grow spinner-grow-xl text-warning"></div>
+                                            <div class="spinner-grow spinner-grow-xl text-danger"></div>
+                                            <div class="spinner-grow spinner-grow-xl text-secondary"></div>
+                                            <div class="spinner-grow spinner-grow-xl text-dark"></div>
+                                            <div class="spinner-grow spinner-grow-xl text-light"></div>
+                                        </h5>
                                     </a>
-                                    <p class="listing-desc text-muted ellipsis">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non purus odio. Vestibulum ante ipsum primis in faucibus orci.
-                                    </p>
                                 </div>
                             </div>
                         </div>
