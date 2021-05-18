@@ -12,9 +12,13 @@
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
     <link rel="stylesheet" href="css/vendor/jquery.contextMenu.min.css" />
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
     <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />
     <link rel="stylesheet" href="css/main.css" />
+
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
@@ -46,38 +50,20 @@
         <div class="container-fluid disable-text-selection">
             <div class="row">
                 <div class="col-12">
-
                     <div class="mb-3">
-                        <h1>Product Images</h1>
+                        <h1><img src="logos/mobile.png" alt="mobile-box-logo"> Inside the box</h1>
                         <div class="text-zero top-right-button-container">
-                            <button type="button" class="btn btn-primary btn-lg top-right-button mr-1">ADD NEW</button>
-                            <div class="btn-group">
-                                <div class="btn btn-primary btn-lg pl-4 pr-0 check-button">
-                                    <label class="custom-control custom-checkbox mb-0 d-inline-block">
-                                        <input type="checkbox" class="custom-control-input" id="checkAll">
-                                        <span class="custom-control-label">&nbsp;</span>
-                                    </label>
-                                </div>
-                                <button type="button"
-                                    class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                </div>
-                            </div>
+                            <button type="button" class="maintenance-mode btn btn-primary btn-lg top-right-button mr-1">ADD NEW <i class="simple-icon-pin"></i></button>
                         </div>
                         <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
                             <ol class="breadcrumb pt-0">
                                 <li class="breadcrumb-item">
-                                    <a href="#">Home</a>
+                                    <a href="index.html">📚 Pylation</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="#">Library</a>
+                                    <a href="index.html">🗂️ Pylbox</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                <li class="breadcrumb-item active" aria-current="page">Inside the box</li>
                             </ol>
                         </nav>
 
@@ -91,14 +77,14 @@
                         </a>
                         <div class="collapse d-md-block" id="displayOptions">
                             <span class="mr-3 mb-2 d-inline-block float-md-left">
-                                <a href="#" class="mr-2 view-icon">
+                                <a href="#" class="maintenance-mode mr-2 view-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
                                         <path class="view-icon-svg" d="M17.5,3H.5a.5.5,0,0,1,0-1h17a.5.5,0,0,1,0,1Z" />
                                         <path class="view-icon-svg" d="M17.5,10H.5a.5.5,0,0,1,0-1h17a.5.5,0,0,1,0,1Z" />
                                         <path class="view-icon-svg" d="M17.5,17H.5a.5.5,0,0,1,0-1h17a.5.5,0,0,1,0,1Z" />
                                     </svg>
                                 </a>
-                                <a href="#" class="mr-2 view-icon">
+                                <a href="#" class="maintenance-mode mr-2 view-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
                                         <path class="view-icon-svg" d="M17.5,3H6.5a.5.5,0,0,1,0-1h11a.5.5,0,0,1,0,1Z" />
                                         <path class="view-icon-svg"
@@ -112,7 +98,7 @@
                                         <path class="view-icon-svg"
                                             d="M17.5,17H6.5a.5.5,0,0,1,0-1h11a.5.5,0,0,1,0,1Z" /></svg>
                                 </a>
-                                <a href="#" class="mr-2 view-icon active">
+                                <a href="#" class="maintenance-mode mr-2 view-icon active">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
                                         <path class="view-icon-svg"
                                             d="M7,2V8H1V2H7m.12-1H.88A.87.87,0,0,0,0,1.88V8.12A.87.87,0,0,0,.88,9H7.12A.87.87,0,0,0,8,8.12V1.88A.87.87,0,0,0,7.12,1Z" />
@@ -132,8 +118,8 @@
                                         Order By
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="maintenance-mode dropdown-item" href="#">Action</a>
+                                        <a class="maintenance-mode dropdown-item" href="#">Another action</a>
                                     </div>
                                 </div>
                                 <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
@@ -141,17 +127,17 @@
                                 </div>
                             </div>
                             <div class="float-md-right">
-                                <span class="text-muted text-small">Displaying 1-10 of 210 items </span>
+                                <span class="text-muted text-small">Displaying all items </span>
                                 <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     20
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">10</a>
-                                    <a class="dropdown-item active" href="#">20</a>
-                                    <a class="dropdown-item" href="#">30</a>
-                                    <a class="dropdown-item" href="#">50</a>
-                                    <a class="dropdown-item" href="#">100</a>
+                                    <a class="maintenance-mode dropdown-item" href="#">10</a>
+                                    <a class="maintenance-mode dropdown-item active" href="#">20</a>
+                                    <a class="maintenance-mode dropdown-item" href="#">30</a>
+                                    <a class="maintenance-mode dropdown-item" href="#">50</a>
+                                    <a class="maintenance-mode dropdown-item" href="#">100</a>
                                 </div>
                             </div>
                         </div>
@@ -160,297 +146,11 @@
                 </div>
             </div>
 
-            <div class="row list disable-text-selection" data-check-all="checkAll">
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Pages.Product.Detail.html"><img class="card-img-top" src="img/cards/thumb-1.jpg"
-                                    alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label">&nbsp;</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Pages.Product.Detail.html">
-                                        <p class="list-item-heading mb-4 pt-1">Cheesecake</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">18.08.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Pages.Product.Detail.html"><img class="card-img-top" src="img/cards/thumb-2.jpg"
-                                    alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                            <span
-                                class="badge badge-pill badge-secondary position-absolute badge-top-left-2">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label">&nbsp;</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Pages.Product.Detail.html">
-                                        <p class="list-item-heading mb-4 pt-1">Chocolate Cake</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">14.06.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Pages.Product.Detail.html"><img class="card-img-top" src="img/cards/thumb-3.jpg"
-                                    alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label">&nbsp;</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Pages.Product.Detail.html">
-                                        <p class="list-item-heading mb-4 pt-1">Petit Gâteau</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">24.05.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Pages.Product.Detail.html"><img class="card-img-top" src="img/cards/thumb-4.jpg"
-                                    alt="Card image cap"></a>
-                            <span
-                                class="badge badge-pill badge-secondary position-absolute badge-top-left">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label">&nbsp;</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Pages.Product.Detail.html">
-                                        <p class="list-item-heading mb-4 pt-1">Napoleonshat</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">23.05.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Pages.Product.Detail.html"><img class="card-img-top" src="img/cards/thumb-4.jpg"
-                                    alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label">&nbsp;</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Pages.Product.Detail.html">
-                                        <p class="list-item-heading mb-4 pt-1">Napoleonshat</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">19.04.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Pages.Product.Detail.html"><img class="card-img-top" src="img/cards/thumb-3.jpg"
-                                    alt="Card image cap"></a>
-                            <span
-                                class="badge badge-pill badge-secondary position-absolute badge-top-left">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label">&nbsp;</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Pages.Product.Detail.html">
-                                        <p class="list-item-heading mb-4 pt-1">Petit Gâteau</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">01.03.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Pages.Product.Detail.html"><img class="card-img-top" src="img/cards/thumb-1.jpg"
-                                    alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                            <span
-                                class="badge badge-pill badge-secondary position-absolute badge-top-left-2">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label">&nbsp;</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Pages.Product.Detail.html">
-                                        <p class="list-item-heading mb-4 pt-1">Cheesecake</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">21.02.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Pages.Product.Detail.html"><img class="card-img-top" src="img/cards/thumb-2.jpg"
-                                    alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                            <span
-                                class="badge badge-pill badge-secondary position-absolute badge-top-left-2">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label">&nbsp;</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Pages.Product.Detail.html">
-                                        <p class="list-item-heading mb-4 pt-1">Chocolate Cake</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">18.02.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="row" id="list">
+                <!-- ⚡ All items will be render in here -->
 
                 <div class="col-12">
-                    <nav class="mt-4 mb-3">
-                        <ul class="pagination justify-content-center mb-0">
-                            <li class="page-item ">
-                                <a class="page-link first" href="#">
-                                    <i class="simple-icon-control-start"></i>
-                                </a>
-                            </li>
-                            <li class="page-item ">
-                                <a class="page-link prev" href="#">
-                                    <i class="simple-icon-arrow-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item ">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item ">
-                                <a class="page-link next" href="#" aria-label="Next">
-                                    <i class="simple-icon-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li class="page-item ">
-                                <a class="page-link last" href="#">
-                                    <i class="simple-icon-control-end"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <!-- 🔗 Pagination from pagination.html goes here -->
                 </div>
             </div>
         </div>
@@ -481,20 +181,32 @@
         </div>
     </footer>
 
-    <script src="js/vendor/jquery-3.3.1.min.js"></script>
     <script src="js/vendor/bootstrap.bundle.min.js"></script>
     <script src="js/vendor/perfect-scrollbar.min.js"></script>
     <script src="js/vendor/mousetrap.min.js"></script>
     <script src="js/vendor/jquery.contextMenu.min.js"></script>
     <script src="js/vendor/sweetalert2.all.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
     <script src="js/dore.script.js"></script>
     <script src="js/scripts.js"></script>
 
     <!-- ⚡ Excute script after loaded all contents -->
     <script type="text/javascript">
+        //⚡ Add animate on scroll effect to all items
+        AOS.init({
+            duration: 1000,
+            mirror: true
+        });
+
         window.addEventListener("load", function(){
             //⚡ Set navbar's menu to maintenance mode
-            $(".icon-menu-item, .account-menu-item, .main-menu-item").on('click', (e) => {
+            $(".icon-menu-item, .account-menu-item, .main-menu-item, .maintenance-mode").on('click', (e) => {
                 e.preventDefault();
                 
                 Swal.fire({
@@ -503,6 +215,106 @@
                     icon: "warning"
                 })
             });
+
+            var aosEffect = [
+                'fade',
+                'fade-up',
+                'fade-down',
+                'fade-left',
+                'fade-right',
+                'fade-up-right',
+                'fade-up-left',
+                'fade-down-right',
+                'fade-down-left',
+                'flip-up',
+                'flip-down',
+                'flip-left',
+                'flip-right',
+                'slide-up',
+                'slide-down',
+                'slide-left',
+                'slide-right',
+                'zoom-in',
+                'zoom-in-up',
+                'zoom-in-down',
+                'zoom-in-left',
+                'zoom-in-right',
+                'zoom-out',
+                'zoom-out-up',
+                'zoom-out-down',
+                'zoom-out-left',
+                'zoom-out-right'
+            ];
+
+            //⚡ Web app's Firebase configuration and initialize Firebase
+            var firebaseConfig = {
+                apiKey: "AIzaSyDHirv0lel40NrnbvQnImYtZ0kJW3jowLQ",
+                authDomain: "pylbox-code-tieumomo.firebaseapp.com",
+                projectId: "pylbox-code-tieumomo",
+                storageBucket: "pylbox-code-tieumomo.appspot.com",
+                messagingSenderId: "1001316735922",
+                appId: "1:1001316735922:web:2fc10f48038d8c7b63a2ab",
+                measurementId: "G-5EPZRH8EH4"
+            };
+            firebase.initializeApp(firebaseConfig);
+            var defaultDatabase = firebase.database();
+
+            //⚡ Get and render all items + sample items
+            var newestRef = firebase.database().ref('items').orderByKey();
+            newestRef.on("value", (snapshot) => {
+                const items = snapshot.val();
+                Object.entries(items).forEach(([key, value]) => {
+                    var html = `
+                        <div data-aos="${aosEffect[Math.floor(Math.random()*aosEffect.length)]}" class="col-12 col-lg-6 mb-5">
+                            <div class="card flex-row listing-card-container">
+                                <div class="w-40 position-relative">
+                                    <a href="#">
+                                        <img class="card-img-left" src="${value["image"]}" alt="Card image cap">
+                                        <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">${value["box"]}</span>
+                                    </a>
+                                </div>
+                                <div class="w-60 d-flex align-items-center">
+                                    <div class="card-body">
+                                        <a href="#">
+                                            <h5 class="mb-3 listing-heading ellipsis">${value["title"]}</h5>
+                                        </a>
+                                        <p class="listing-desc text-muted ellipsis">
+                                            ${value["sumary"]}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $("#list").prepend(html);
+                });
+            });
+
+            for (var i = 0; i < 100; i++) {
+                var html = `
+                    <div data-aos="${aosEffect[Math.floor(Math.random()*aosEffect.length)]}" class="col-12 col-lg-6 mb-5">
+                        <div class="card flex-row listing-card-container">
+                            <div class="w-40 position-relative">
+                                <a href="#">
+                                    <img class="card-img-left" src="img/details/small-5.jpg" alt="Card image cap">
+                                    <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">SAMPLE</span>
+                                </a>
+                            </div>
+                            <div class="w-60 d-flex align-items-center">
+                                <div class="card-body">
+                                    <a href="#">
+                                        <h5 class="mb-3 listing-heading ellipsis">This is a sample item in the box</h5>
+                                    </a>
+                                    <p class="listing-desc text-muted ellipsis">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non purus odio. Vestibulum ante ipsum primis in faucibus orci.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                $("#list").append(html);
+            }
         });
     </script>
 </body>
