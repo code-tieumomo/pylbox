@@ -262,21 +262,21 @@
             //⚡ Get and render all items + sample items
             var newestRef = firebase.database().ref('items').orderByKey();
             newestRef.on("value", (snapshot) => {
-                $(".temp-items").remove();
+                $("#list").empty();
                 const items = snapshot.val();
                 Object.entries(items).forEach(([key, value]) => {
                     var html = `
                         <div data-aos="${aosEffect[Math.floor(Math.random()*aosEffect.length)]}" class="col-12 col-lg-6 mb-5">
                             <div class="card flex-row listing-card-container">
                                 <div class="w-40 position-relative">
-                                    <a href="#">
+                                    <a href="detail.html?key=${key}">
                                         <img class="card-img-left" src="${value["image"]}" alt="Card image cap">
                                         <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">${value["box"]}</span>
                                     </a>
                                 </div>
                                 <div class="w-60 d-flex align-items-center">
                                     <div class="card-body">
-                                        <a href="#">
+                                        <a href="detail.html?key=${key}">
                                             <h5 class="mb-3 listing-heading ellipsis">${value["title"]}</h5>
                                         </a>
                                         <p class="listing-desc text-muted ellipsis">

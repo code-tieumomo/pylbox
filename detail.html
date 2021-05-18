@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pylbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="css/vendor/baguetteBox.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap-stars.css" />
+    <link rel="stylesheet" href="css/vendor/video-js.css" />
+    <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+</head>
+
+<body id="app-container" class="menu-default show-spinner">
+    <nav class="navbar fixed-top">
+        <!-- 🔗 Navbar from nav.html goes here -->
+        <!-- ⚡ Include navbar -->
+        <script type="text/javascript">
+            fetch("navbar.html").then(response => {
+                return response.text();
+            }).then(data => {
+                $(".navbar").html(data);
+            });
+        </script>
+    </nav>
+
+    <div class="menu">
+        <!-- 🔗 Menu from menu.html goes here -->
+        <!-- ⚡ Include menu -->
+        <script type="text/javascript">
+            fetch("menu.html").then(response => {
+                return response.text();
+            }).then(data => {
+                $(".menu").html(data);
+            });
+        </script>
+    </div>
+
+    <main>
+        <div class="container-fluid disable-text-selection">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3">
+                        <h1 id="item-title"><img src="logos/mobile.png" alt="mobile-box-logo"> Inside the box</h1>
+                        <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
+                            <ol class="breadcrumb pt-0">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">📚 Pylation</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">🗂️ Pylbox</a>
+                                </li>
+                                <li id="item-title-2" class="breadcrumb-item active" aria-current="page">Inside the box</li>
+                            </ol>
+                        </nav>
+
+                    </div>
+
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-12 col-xl-8 col-left">
+                    <div class="card mb-4">
+                        <div class="lightbox">
+                            <a id="item-img-link" href="img/details/5.jpg">
+                                <img id="item-img" alt="detail" src="img/details/5.jpg"
+                                    class="responsive border-0 card-img-top mb-3" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-5">
+                                <h5 id="item-sumary" class="card-title">Game Changing Features</h5>
+                                <p id="item-detail">
+                                    These cases are
+                                    perfectly simple and easy to distinguish. In a free hour, when our power of choice
+                                    is untrammelled and when nothing prevents our being able to do what we like best,
+                                    every pleasure is to be welcomed and every pain avoided. But in certain
+                                    circumstances and owing to the claims of duty or the obligations of business it will
+                                    frequently occur that pleasures have to be repudiated and annoyances accepted. The
+                                    wise man therefore always holds in these matters to this principle of selection: he
+                                    rejects pleasures to secure other greater pleasures, or else he endures pains to
+                                    avoid worse pains. But I must explain to you how all this mistaken idea of
+                                    denouncing pleasure and praising pain was born and I will give you a complete
+                                    account of the system, and expound the actual teachings of the great explorer of the
+                                    truth, the master-builder of human happiness. No one rejects, dislikes, or avoids
+                                    pleasure itself, because it is pleasure, but because those who do not know how to
+                                    pursue pleasure rationally encounter consequences that are extremely painful. Nor
+                                    again is there anyone who loves or pursues or desires to obtain pain of itself,
+                                    because it is pain, but because occasionally circumstances occur in which toil and
+                                    pain can procure him some great pleasure. To take a trivial example, which of us
+                                    ever undertakes laborious physical exercise, except to obtain some advantage from
+                                    it? But who has any right to find fault with a man who chooses to enjoy a pleasure
+                                    that has no annoying consequences, or one who avoids a pain that produces no
+                                    resultant pleasure? On the other hand, we denounce with righteous indignation and
+                                    dislike men who are so beguiled and demoralized by the charms of pleasure of the
+                                    moment, so blinded by desire, that they cannot foresee the pain and trouble that are
+                                    bound to ensue; and equal blame belongs to those who fail in their duty through
+                                    weakness of will, which is the same as saying through shrinking from toil and pain.
+                                    These cases are perfectly simple and easy to distinguish. In a free hour, when our
+                                    power of choice is untrammelled and when nothing prevents our being able to do what
+                                    we like best, every pleasure is to be welcomed and every pain avoided. But in
+                                    certain circumstances and owing to the claims of duty or the obligations of business
+                                    it will frequently occur that pleasures have to be repudiated and annoyances
+                                    accepted.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 col-xl-4 col-right">
+                    <div class="card mb-4">
+                        <div class="card-body text-center pt-5 pb-5">
+                            <div>
+                                <img alt="thumb"
+                                    class="img-thumbnail border-0 rounded-circle mb-4 list-thumbnail mx-auto"
+                                    src="https://avatars.githubusercontent.com/u/81463452?v=4" />
+                                <h5 class="mb-0 font-weight-semibold color-theme-1 mb-3">code-tieumomo</h5>
+                                <span class="badge badge-pill badge-danger mr-1">Author</span>
+                            </div>
+                            <div class="pl-3 pr-3 pt-3 pb-0 flex-grow-1 d-flex align-items-center">
+                                <p class="mb-0 ">
+                                    Objectively innovate empowered manufactured products whereas
+                                    parallel platforms. Holisticly predominate extensible testing
+                                    procedures for reliable supply chains.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Box</h5>
+                            <div class="d-flex flex-row align-items-center mb-3">
+                                <a class="d-block position-relative" href="#">
+                                    <i class="iconsminds-director large-icon initial-height"></i>
+                                </a>
+                                <div class="pl-3 pt-2 pr-2 pb-2">
+                                    <a href="#">
+                                        <p id="item-box" class="list-item-heading mb-1">Using the Template</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <p class="mb-0 text-muted">ColoredStrategies 2019</p>
+                    </div>
+                    <div class="col-sm-6 d-none d-sm-block">
+                        <ul class="breadcrumb pt-0 pr-0 float-right">
+                            <li class="breadcrumb-item mb-0">
+                                <a href="#" class="btn-link">Review</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="#" class="btn-link">Purchase</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="#" class="btn-link">Docs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="js/vendor/bootstrap-datepicker.js"></script>
+    <script src="js/vendor/baguetteBox.min.js"></script>
+    <script src="js/vendor/jquery.barrating.min.js"></script>
+    <script src="js/vendor/sweetalert2.all.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="js/vendor/video.js"></script>
+    <script src="js/dore.script.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <!-- ⚡ Excute script after loaded all contents -->
+    <script type="text/javascript">
+        //⚡ Add animate on scroll effect to all items
+        AOS.init({
+            duration: 1000,
+            mirror: true
+        });
+
+        window.addEventListener("load", function(){
+            //⚡ Set navbar's menu to maintenance mode
+            $(".icon-menu-item, .account-menu-item, .main-menu-item, .maintenance-mode").on('click', (e) => {
+                e.preventDefault();
+                
+                Swal.fire({
+                    title: "Sorry!",
+                    text: "🛠️ This feature is updating ...",
+                    icon: "warning"
+                })
+            });
+
+            var aosEffect = [
+                'fade',
+                'fade-up',
+                'fade-down',
+                'fade-left',
+                'fade-right',
+                'fade-up-right',
+                'fade-up-left',
+                'fade-down-right',
+                'fade-down-left',
+                'flip-up',
+                'flip-down',
+                'flip-left',
+                'flip-right',
+                'slide-up',
+                'slide-down',
+                'slide-left',
+                'slide-right',
+                'zoom-in',
+                'zoom-in-up',
+                'zoom-in-down',
+                'zoom-in-left',
+                'zoom-in-right',
+                'zoom-out',
+                'zoom-out-up',
+                'zoom-out-down',
+                'zoom-out-left',
+                'zoom-out-right'
+            ];
+
+            //⚡ Web app's Firebase configuration and initialize Firebase
+            var firebaseConfig = {
+                apiKey: "AIzaSyDHirv0lel40NrnbvQnImYtZ0kJW3jowLQ",
+                authDomain: "pylbox-code-tieumomo.firebaseapp.com",
+                projectId: "pylbox-code-tieumomo",
+                storageBucket: "pylbox-code-tieumomo.appspot.com",
+                messagingSenderId: "1001316735922",
+                appId: "1:1001316735922:web:2fc10f48038d8c7b63a2ab",
+                measurementId: "G-5EPZRH8EH4"
+            };
+            firebase.initializeApp(firebaseConfig);
+            var defaultDatabase = firebase.database();
+
+            //⚡ Get and render item
+            var params = new URLSearchParams(location.search);
+            var key = params.get("key");
+            if (key !== null) {
+                var itemsRef = firebase.database().ref('items/' + key);
+                itemsRef.on('value', (snapshot) => {
+                    const item = snapshot.val();
+                    if (item) {
+                        window.document.title = item['title'] + " | Pylbox";
+                        $("#item-title").html(`<img src="logos/mobile.png" alt="mobile-box-logo"> ` + item["title"]);
+                        $("#item-title-2").html(item["title"]);
+                        $("#item-img-link").attr('href', item["image"]);
+                        $("#item-img").attr('src', item["image"]);
+                        $("#item-sumary").html(item["sumary"]);
+                        $("#item-detail").html(item["detail"]);
+                        $("#item-box").html(item["box"]);
+
+                        // $("#item-sumary").html(item["sumary"]);
+                        // $("#item-box").html(item["box"]);
+                        // $("#item-time").html(new Date(key * 1000));
+                        // $("#item-source").html(item["source"]);
+                        // $("#item-source").attr('href', item['sourceLink']);
+                        // $("#image").attr('src', item["image"]);
+                        // $("#item-detail").html(item["detail"]);
+                    } else {
+                        $("#item-title").html("❌ 404 Not Found!");
+                        $("#item-title-2").html("Sorry! We can't found this item in the box 😥");
+                        $(".col-right").remove();
+                        $(".card-body").remove();
+                        $(".col-left").removeClass('col-xl-8');
+                        $(".col-left").addClass('col-xl-12');
+                        $("#item-img-link").attr('href', 'img/errors/404.png');
+                        $("#item-img").attr('src', 'img/errors/404.png');
+                    }
+                });
+            } else {
+                $("#item-title").html("Sorry! We can't found this item in the box 😥");
+            }
+        });
+    </script>
+</body>
+</html>
