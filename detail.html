@@ -305,7 +305,14 @@
                     }
                 });
             } else {
-                $("#item-title").html("Sorry! We can't found this item in the box 😥");
+                $("#item-title").html("❌ 404 Not Found!");
+                $("#item-title-2").html("Sorry! We can't found this item in the box 😥");
+                $(".col-right").remove();
+                $(".card-body").remove();
+                $(".col-left").removeClass('col-xl-8');
+                $(".col-left").addClass('col-xl-12');
+                $("#item-img-link").attr('href', 'img/errors/404.png');
+                $("#item-img").attr('src', 'img/errors/404.png');
             }
         });
     </script>
