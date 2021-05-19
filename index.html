@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
     <link rel="stylesheet" href="css/vendor/jquery.contextMenu.min.css" />
+    <link rel="stylesheet" href="css/vendor/jquery.toast.min.css">
     <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
@@ -47,7 +48,7 @@
     </div>
 
     <main>
-        <div class="container-fluid disable-text-selection">
+        <div id="items-list" class="container-fluid disable-text-selection">
             <div class="row">
                 <div class="col-12">
                     <div class="mb-3">
@@ -66,7 +67,6 @@
                                 <li class="breadcrumb-item active" aria-current="page">Inside the box</li>
                             </ol>
                         </nav>
-
                     </div>
 
                     <div class="mb-2">
@@ -118,27 +118,16 @@
                                         Order By
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="maintenance-mode dropdown-item" href="#">Action</a>
-                                        <a class="maintenance-mode dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item sort" data-sort="item-title" href="#">Title</a>
+                                        <a class="maintenance-mode dropdown-item sort" data-sort="item-date" href="#">Date</a>
                                     </div>
                                 </div>
                                 <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
-                                    <input placeholder="Search...">
+                                    <input class="search" placeholder="Search...">
                                 </div>
                             </div>
                             <div class="float-md-right">
-                                <span class="text-muted text-small">Displaying all items </span>
-                                <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    20
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="maintenance-mode dropdown-item" href="#">10</a>
-                                    <a class="maintenance-mode dropdown-item active" href="#">20</a>
-                                    <a class="maintenance-mode dropdown-item" href="#">30</a>
-                                    <a class="maintenance-mode dropdown-item" href="#">50</a>
-                                    <a class="maintenance-mode dropdown-item" href="#">100</a>
-                                </div>
+                                <span id="items-count" class="text-muted text-small">Loading items &nbsp;<div class="spinner-border text-muted spinner-border-sm"></div></span>
                             </div>
                         </div>
                     </div>
@@ -146,12 +135,8 @@
                 </div>
             </div>
 
-            <div class="row" id="list">
-                <!-- ⚡ All items will be render in here -->
-
-                <div class="col-12">
-                    <!-- 🔗 Pagination from pagination.html goes here -->
-                </div>
+            <div class="list row" id="list">
+                <!-- ⚡ All items will be render in here, 1 sample item below-->
             </div>
         </div>
     </main>
@@ -161,18 +146,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-sm-6">
-                        <p class="mb-0 text-muted">ColoredStrategies 2019</p>
+                        <p id="footer-date" class="mb-0 text-muted">Loading items &nbsp;<span class="spinner-border text-muted spinner-border-sm"></span></p>
                     </div>
                     <div class="col-sm-6 d-none d-sm-block">
                         <ul class="breadcrumb pt-0 pr-0 float-right">
                             <li class="breadcrumb-item mb-0">
-                                <a href="#" class="btn-link">Review</a>
-                            </li>
-                            <li class="breadcrumb-item mb-0">
-                                <a href="#" class="btn-link">Purchase</a>
-                            </li>
-                            <li class="breadcrumb-item mb-0">
-                                <a href="#" class="btn-link">Docs</a>
+                                <a id="footer-weather" class="btn-link">Loading weather &nbsp;<span class="spinner-border text-muted spinner-border-sm"></span></a>
                             </li>
                         </ul>
                     </div>
@@ -186,6 +165,8 @@
     <script src="js/vendor/mousetrap.min.js"></script>
     <script src="js/vendor/jquery.contextMenu.min.js"></script>
     <script src="js/vendor/sweetalert2.all.min.js"></script>
+    <script src="js/vendor/jquery.toast.min.js"></script>
+    <script src="js/vendor/list.js"></script>
     <!-- AOS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -205,6 +186,11 @@
         });
 
         window.addEventListener("load", function(){
+            //⚡ Get current date
+            var date = new Date();
+            var year = date.getFullYear();
+            $("#footer-date").html("<img src=\"logos/mobile.png\" alt=\"mobile-box-logo\"> Pylbox " + year);
+
             //⚡ Set navbar's menu to maintenance mode
             $(".icon-menu-item, .account-menu-item, .main-menu-item, .maintenance-mode").on('click', (e) => {
                 e.preventDefault();
@@ -216,35 +202,8 @@
                 })
             });
 
-            var aosEffect = [
-                'fade',
-                'fade-up',
-                'fade-down',
-                'fade-left',
-                'fade-right',
-                'fade-up-right',
-                'fade-up-left',
-                'fade-down-right',
-                'fade-down-left',
-                'flip-up',
-                'flip-down',
-                'flip-left',
-                'flip-right',
-                'slide-up',
-                'slide-down',
-                'slide-left',
-                'slide-right',
-                'zoom-in',
-                'zoom-in-up',
-                'zoom-in-down',
-                'zoom-in-left',
-                'zoom-in-right',
-                'zoom-out',
-                'zoom-out-up',
-                'zoom-out-down',
-                'zoom-out-left',
-                'zoom-out-right'
-            ];
+            //⚡ List AOS effects
+            var aosEffect = ['fade-up', 'fade-down', 'fade-left', 'fade-right', 'fade-up-right', 'fade-up-left', 'fade-down-right', 'fade-down-left', 'flip-up', 'flip-down', 'flip-left', 'flip-right', 'slide-up', 'slide-down', 'slide-left', 'slide-right', 'zoom-in', 'zoom-in-up', 'zoom-in-down', 'zoom-in-left', 'zoom-in-right', 'zoom-out', 'zoom-out-up', 'zoom-out-down', 'zoom-out-left', 'zoom-out-right'];
 
             //⚡ Web app's Firebase configuration and initialize Firebase
             var firebaseConfig = {
@@ -259,10 +218,14 @@
             firebase.initializeApp(firebaseConfig);
             var defaultDatabase = firebase.database();
 
-            //⚡ Get and render all items + sample items
-            var newestRef = firebase.database().ref('items').orderByKey();
-            newestRef.on("value", (snapshot) => {
-                $("#list").empty();
+            //⚡ Get and render all items only once time + create list from ListJS
+            var newestRef = firebase.database().ref('items');
+            var itemCount = 0;
+            newestRef.once("value", (snapshot) => {
+                // snapshot.forEach((childSnapshot) => {
+                //     var childKey = childSnapshot.key;
+                //     var childData = childSnapshot.val();
+                // });
                 const items = snapshot.val();
                 Object.entries(items).forEach(([key, value]) => {
                     var html = `
@@ -277,7 +240,7 @@
                                 <div class="w-60 d-flex align-items-center">
                                     <div class="card-body">
                                         <a href="detail.html?key=${key}">
-                                            <h5 class="mb-3 listing-heading ellipsis">${value["title"]}</h5>
+                                            <h5 class="item-title mb-3 listing-heading ellipsis">${value["title"]}</h5>
                                         </a>
                                         <p class="listing-desc text-muted ellipsis">
                                             ${value["sumary"]}
@@ -288,40 +251,40 @@
                         </div>
                     `;
                     $("#list").prepend(html);
+
+                    var options = {
+                        valueNames: ['item-title']
+                    };
+                    var itemsList = new List('items-list', options);
+
+                    itemCount++;
+                    $("#items-count").html("Displaying " + itemCount + " items");
                 });
             });
 
-            for (var i = 0; i < 4; i++) {
-                var html = `
-                    <div data-aos="${aosEffect[Math.floor(Math.random()*aosEffect.length)]}" class="col-12 col-lg-6 mb-5 temp-items">
-                        <div class="card flex-row listing-card-container">
-                            <div class="w-40 position-relative">
-                                <a href="#">
-                                    <img class="card-img-left" src="img/details/loading.png" alt="Card image cap">
-                                    <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left"><div class="spinner-border spinner-border-sm"></div></span></span>
-                                </a>
-                            </div>
-                            <div class="w-60 d-flex align-items-center">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <h5 class="mb-3 listing-heading ellipsis">
-                                            <div class="spinner-grow spinner-grow-xl text-primary"></div>
-                                            <div class="spinner-grow spinner-grow-xl text-success"></div>
-                                            <div class="spinner-grow spinner-grow-xl text-info"></div>
-                                            <div class="spinner-grow spinner-grow-xl text-warning"></div>
-                                            <div class="spinner-grow spinner-grow-xl text-danger"></div>
-                                            <div class="spinner-grow spinner-grow-xl text-secondary"></div>
-                                            <div class="spinner-grow spinner-grow-xl text-dark"></div>
-                                            <div class="spinner-grow spinner-grow-xl text-light"></div>
-                                        </h5>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                $("#list").append(html);
-            }
+            //⚡ Listen to items change
+            newestRef.on('child_added', (data) => {
+                //addCommentElement(postElement, data.key, data.val().text, data.val().author);
+                $.toast({
+                    heading: "✔️ An item has been added",
+                    text: data.val().title + " has been added",
+                });
+            });
+            newestRef.on('child_changed', (data) => {
+                //setCommentValues(postElement, data.key, data.val().text, data.val().author);
+                $.toast({
+                    heading: "⚠️ An item has been edited",
+                    text: data.val().title + " has been edited",
+                });
+                
+            });
+            newestRef.on('child_removed', (data) => {
+                //deleteComment(postElement, data.key);
+                $.toast({
+                    heading: "❌ An item has been deleted",
+                    text: data.val().title + " has been deleted",
+                });
+            });
         });
     </script>
 </body>
