@@ -48,7 +48,7 @@
     </div>
 
     <main>
-        <div id="items-list" class="container-fluid disable-text-selection">
+        <div class="container-fluid disable-text-selection">
             <div class="row">
                 <div class="col-12">
                     <div class="mb-3">
@@ -115,15 +115,15 @@
                                 <div class="btn-group float-md-left mr-1 mb-1">
                                     <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Order By
+                                        Box
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item sort" data-sort="item-title" href="#">Title</a>
-                                        <a class="maintenance-mode dropdown-item sort" data-sort="item-date" href="#">Date</a>
+                                        <a class="dropdown-item filter" data-filter="Codes" href="#" >Codes</a>
+                                        <a class="dropdown-item filter" data-filter="Test" href="#" >Test</a>
                                     </div>
                                 </div>
                                 <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
-                                    <input class="search" placeholder="Search...">
+                                    <input placeholder="Search...">
                                 </div>
                             </div>
                             <div class="float-md-right">
@@ -135,8 +135,9 @@
                 </div>
             </div>
 
-            <div class="list row" id="list">
+            <div class="row my-shuffle-container" id="list">
                 <!-- ⚡ All items will be render in here, 1 sample item below-->
+                <div class="col-1@sm my-sizer-element"></div>
             </div>
         </div>
     </main>
@@ -166,7 +167,7 @@
     <script src="js/vendor/jquery.contextMenu.min.js"></script>
     <script src="js/vendor/sweetalert2.all.min.js"></script>
     <script src="js/vendor/jquery.toast.min.js"></script>
-    <script src="js/vendor/list.js"></script>
+    <script src="js/vendor/shufflejs/shuffle.min.js"></script>
     <!-- AOS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -180,10 +181,10 @@
     <!-- ⚡ Excute script after loaded all contents -->
     <script type="text/javascript">
         //⚡ Add animate on scroll effect to all items
-        AOS.init({
-            duration: 1000,
-            mirror: true
-        });
+        // AOS.init({
+        //     duration: 1000,
+        //     mirror: true
+        // });
 
         window.addEventListener("load", function(){
             //⚡ Get current date
@@ -194,7 +195,7 @@
             //⚡ Set navbar's menu to maintenance mode
             $(".icon-menu-item, .account-menu-item, .main-menu-item, .maintenance-mode").on('click', (e) => {
                 e.preventDefault();
-                
+
                 Swal.fire({
                     title: "Sorry!",
                     text: "🛠️ This feature is updating ...",
@@ -220,55 +221,52 @@
 
             //⚡ Get and render all items only once time + create list from ListJS
             var newestRef = firebase.database().ref('items');
-            var itemCount = 0;
-            newestRef.once("value", (snapshot) => {
-                // snapshot.forEach((childSnapshot) => {
-                //     var childKey = childSnapshot.key;
-                //     var childData = childSnapshot.val();
-                // });
-                const items = snapshot.val();
-                Object.entries(items).forEach(([key, value]) => {
-                    var html = `
-                        <div data-aos="${aosEffect[Math.floor(Math.random()*aosEffect.length)]}" class="col-12 col-lg-6 mb-5">
-                            <div class="card flex-row listing-card-container">
-                                <div class="w-40 position-relative">
-                                    <a href="detail.html?key=${key}">
-                                        <img class="card-img-left" src="${value["image"]}" alt="Card image cap">
-                                        <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">${value["box"]}</span>
-                                    </a>
-                                </div>
-                                <div class="w-60 d-flex align-items-center">
-                                    <div class="card-body">
-                                        <a href="detail.html?key=${key}">
-                                            <h5 class="item-title mb-3 listing-heading ellipsis">${value["title"]}</h5>
-                                        </a>
-                                        <p class="listing-desc text-muted ellipsis">
-                                            ${value["sumary"]}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    $("#list").prepend(html);
+            var Shuffle = window.Shuffle;
+            var element = $(".my-shuffle-container");
+            var shuffleInstance = new Shuffle(element, {
+                itemSelector: ".item-in-box"
+            });
 
-                    var options = {
-                        valueNames: ['item-title']
-                    };
-                    var itemsList = new List('items-list', options);
+            $(".filter").on('click', function(event) {
+                event.preventDefault();
 
-                    itemCount++;
-                    $("#items-count").html("Displaying " + itemCount + " items");
-                });
+                shuffleInstance.filter($(this).data("filter"));
             });
 
             //⚡ Listen to items change
             newestRef.on('child_added', (data) => {
                 //addCommentElement(postElement, data.key, data.val().text, data.val().author);
-                $.toast({
-                    heading: "✔️ An item has been added",
-                    text: data.val().title + " has been added",
+                var html = `
+                    <div data-groups='["${data.val().box}"]' data-title="${data.val().title}" class="col-12 col-lg-6 mb-5 item-in-box">
+                        <div class="card flex-row listing-card-container">
+                            <div class="w-40 position-relative">
+                                <a href="detail.html?key=${data.key}">
+                                    <img class="card-img-left" src="${data.val().image}" alt="Card image cap">
+                                    <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">${data.val().box}</span>
+                                </a>
+                            </div>
+                            <div class="w-60 d-flex align-items-center">
+                                <div class="card-body">
+                                    <a href="detail.html?key=${data.key}">
+                                        <h5 class="item-title mb-3 listing-heading ellipsis">${data.val().title}</h5>
+                                    </a>
+                                    <p class="listing-desc text-muted ellipsis">
+                                        ${data.val().sumary}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                $("#list").prepend(html);
+                shuffleInstance = new Shuffle(element, {
+                    itemSelector: ".item-in-box"
                 });
+
+                // $.toast({
+                //     heading: "✔️ An item has been added",
+                //     text: data.val().title + " has been added",
+                // });
             });
             newestRef.on('child_changed', (data) => {
                 //setCommentValues(postElement, data.key, data.val().text, data.val().author);
@@ -276,7 +274,6 @@
                     heading: "⚠️ An item has been edited",
                     text: data.val().title + " has been edited",
                 });
-                
             });
             newestRef.on('child_removed', (data) => {
                 //deleteComment(postElement, data.key);
