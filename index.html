@@ -181,7 +181,7 @@
     <script type="text/javascript">
         //⚡ Add animate on scroll effect to all items
         // AOS.init({
-        //     duration: 1000,
+        //     duration: 500,
         //     mirror: true
         // });
 
@@ -242,7 +242,7 @@
             newestRef.on('child_added', (data) => {
                 //addCommentElement(postElement, data.key, data.val().text, data.val().author);
                 var html = `
-                    <div class="col-12 col-lg-6 mb-5 item-in-box grid-item ${data.val().box} data-title="${data.val().title.toLowerCase()}">
+                    <div data-aos="${aosEffect[Math.floor(Math.random()*aosEffect.length)]}" class="col-12 col-lg-6 mb-5 item-in-box grid-item ${data.val().box} data-title="${data.val().title.toLowerCase()}">
                         <div class="card flex-row listing-card-container">
                             <div class="w-40 position-relative">
                                 <a href="detail.html?key=${data.key}">
