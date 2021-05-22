@@ -192,6 +192,16 @@
             $(".grid").isotope({ filter: '.' + box });
         });
 
+        $("#search").on('keyup', function(event) {
+            event.preventDefault();
+
+            var searchText = $(this).val().trim().toLowerCase();
+            $(".grid").isotope({ filter: function() {
+                var title = $(this).find('.item-title').text().toLowerCase();
+                return title.includes(searchText);
+            } })
+        });
+
         window.addEventListener("load", function(){
             //⚡ Get current date
             var date = new Date();
@@ -232,7 +242,7 @@
             newestRef.on('child_added', (data) => {
                 //addCommentElement(postElement, data.key, data.val().text, data.val().author);
                 var html = `
-                    <div class="col-12 col-lg-6 mb-5 item-in-box grid-item ${data.val().box}">
+                    <div class="col-12 col-lg-6 mb-5 item-in-box grid-item ${data.val().box} data-title="${data.val().title.toLowerCase()}">
                         <div class="card flex-row listing-card-container">
                             <div class="w-40 position-relative">
                                 <a href="detail.html?key=${data.key}">
